@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apple Pay — Clio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="assets/icon.png" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="home" href="index.html">Clio</a>
+      <nav class="langs" aria-label="Язык">
+        <a href="apple-pay.html" lang="en">EN</a>
+        <a href="apple-pay-ru.html" aria-current="page" lang="ru">RU</a>
+      </nav>
+    </header>
+
+    <h1>Сохранить оплату Apple Pay</h1>
+    <p class="updated">iOS 26</p>
+    <p>После оплаты Apple Pay Clio предлагает сохранить трату. Сумму и магазин подставляет Wallet. Нужны iOS 26, Clio, приложение «Команды» и карта в Wallet.</p>
+    <p>Если старая автоматизация падала с «couldn’t convert from Transaction to Text», удалите её и соберите заново. В поле суммы оставалась вся транзакция.</p>
+    <p>Скрины сняты на английском iPhone. В скобках — те же кнопки на русском.</p>
+
+    <h2>1. Wallet</h2>
+    <p>Откройте Настройки → Wallet и Apple Pay. В блоке Allow Wallet &amp; Apple Pay to Access включите <strong>Live Activities</strong> (Эфир активности) и <strong>Mobile Data</strong> (Сотовые данные).</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/01-wallet.jpg" alt="Настройки Wallet: Live Activities и Mobile Data включены" />
+    </figure>
+
+    <h2>2. Автоматизация</h2>
+    <p>Откройте Shortcuts (Команды), вкладку Automation (Автоматизация). Нажмите <strong>+</strong> справа сверху. В первый раз кнопка посередине называется New Automation (Новая автоматизация).</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/02-automation.jpg" alt="Вкладка Automation и кнопка плюс" />
+    </figure>
+
+    <h2>3. Триггер Wallet</h2>
+    <p>Выберите <strong>Wallet</strong> — «When I tap a Wallet Card or Pass» (Когда я подношу карту Wallet).</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/03-trigger.jpg" alt="Пункт Wallet в списке триггеров" />
+    </figure>
+
+    <h2>4. Карты и категории</h2>
+    <p>Отметьте карты, которыми платите. Категории можно оставить все включёнными. Дальше.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/04-cards.jpg" alt="Выбраны обе карты и все категории" />
+    </figure>
+
+    <h2>5. Сразу, без подтверждения</h2>
+    <p>Выберите <strong>Run Immediately</strong> (Немедленный запуск), не Run After Confirmation (Запуск после подтверждения). <strong>Notify When Run</strong> (Уведомлять при запуске) оставьте выключенным. Дальше.</p>
+    <p>Запуск после подтверждения показывает только маленькое системное уведомление. Карточка Clio не появляется.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/05-run.jpg" alt="Выбран Run Immediately, Notify When Run выключен" />
+    </figure>
+
+    <h2>6. Новая команда</h2>
+    <p>Нажмите серую карточку <strong>Create New Shortcut</strong> (Создать новую команду) слева сверху. Не выбирайте готовую команду из списка ниже.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/06-new-shortcut.jpg" alt="Серая карточка Create New Shortcut" />
+    </figure>
+
+    <h2>7. Действие Clio</h2>
+    <p>В поиске внизу введите Clio. Нажмите <strong>Save Wallet Expense</strong>.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/07-search.jpg" alt="В поиске найдено Save Wallet Expense" />
+    </figure>
+    <p>Появятся два блока: «Receive transaction as input» и Save Wallet Expense. Amount и Merchant пока пустые.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/08-action.jpg" alt="Действие Save Wallet Expense с пустыми Amount и Merchant" />
+    </figure>
+
+    <h2>8. Сумма</h2>
+    <p>Нажмите поле Amount (Сумма). Над клавиатурой нажмите <strong>Select Variable</strong> (Выбрать переменную).</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/09-amount-field.jpg" alt="Поле Amount и кнопка Select Variable над клавиатурой" />
+    </figure>
+    <p>Нажмите синюю метку <strong>Shortcut Input</strong> (Входные данные команды) под блоком «Receive transaction as input».</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/10-select-variable.jpg" alt="Экран Select Variable с меткой Shortcut Input" />
+    </figure>
+    <p>Метка, на которой написано только Shortcut Input, ещё не сумма. Так в Clio уходит вся транзакция, и Команды падают до чтения суммы.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/11-shortcut-input.jpg" alt="В Amount пока стоит весь Shortcut Input" />
+    </figure>
+    <p>Нажмите эту метку ещё раз. Тип — Transaction (Транзакция). Не оставляйте галочку на Transaction. Пролистайте и нажмите <strong>Amount</strong> (Сумма).</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/12-amount-pick.jpg" alt="В списке свойств транзакции отмечен Amount" />
+    </figure>
+    <p>В поле появляется синяя метка Amount, не Shortcut Input.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/12-amount-set.jpg" alt="В поле Amount стоит свойство Amount" />
+    </figure>
+
+    <h2>9. Магазин</h2>
+    <p>Нажмите Merchant (Продавец) и повторите тот же путь. В списке транзакции выберите <strong>Merchant</strong>, не Transaction.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/13-merchant.jpg" alt="В списке свойств транзакции отмечен Merchant" />
+    </figure>
+
+    <h2>10. Готово</h2>
+    <p>Нажмите синюю галочку сверху. Автоматизация появится в списке. Следующая оплата выбранной картой спросит, сохранить ли трату в Clio.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/14-done.jpg" alt="Готовая автоматизация Save Wallet Expense в списке" />
+    </figure>
+
+    <footer><p>© 2026 Makar Kovtunov</p></footer>
+  </div>
+</body>
+</html>

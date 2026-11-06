@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apple Pay — Clio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="assets/icon.png" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="home" href="index.html">Clio</a>
+      <nav class="langs" aria-label="Language">
+        <a href="apple-pay.html" aria-current="page" lang="en">EN</a>
+        <a href="apple-pay-ru.html" lang="ru">RU</a>
+      </nav>
+    </header>
+
+    <h1>Save an Apple Pay expense</h1>
+    <p class="updated">iOS 26</p>
+    <p>After you pay with Apple Pay, Clio asks you to save the expense. The amount and the store come from Wallet. You need iOS 26, Clio, Shortcuts, and a card in Wallet.</p>
+    <p>If an older automation failed with “couldn’t convert from Transaction to Text”, delete it and follow these steps again. Amount was still the whole transaction.</p>
+
+    <h2>1. Wallet</h2>
+    <p>Open Settings → Wallet &amp; Apple Pay. Under Allow Wallet &amp; Apple Pay to Access, turn on <strong>Live Activities</strong> and <strong>Mobile Data</strong>.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/01-wallet.jpg" alt="Wallet and Apple Pay settings with Live Activities and Mobile Data on" />
+    </figure>
+
+    <h2>2. Automation</h2>
+    <p>Open Shortcuts and go to the Automation tab. Tap <strong>+</strong> at the top right. The first time, the button in the middle says New Automation.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/02-automation.jpg" alt="Automation tab with the plus button" />
+    </figure>
+
+    <h2>3. Wallet trigger</h2>
+    <p>Choose <strong>Wallet</strong> — “When I tap a Wallet Card or Pass”.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/03-trigger.jpg" alt="Wallet in the list of automation triggers" />
+    </figure>
+
+    <h2>4. Cards and categories</h2>
+    <p>Select the cards you pay with. Leave the categories checked. Tap Next.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/04-cards.jpg" alt="Both cards and every category selected" />
+    </figure>
+
+    <h2>5. Run immediately</h2>
+    <p>Choose <strong>Run Immediately</strong>, not Run After Confirmation. Leave <strong>Notify When Run</strong> off. Tap Next.</p>
+    <p>Run After Confirmation only posts a small system notice. The Clio card does not show.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/05-run.jpg" alt="Run Immediately selected and Notify When Run off" />
+    </figure>
+
+    <h2>6. A new shortcut</h2>
+    <p>Tap the gray <strong>Create New Shortcut</strong> card at the top left. Do not pick a shortcut from the list below.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/06-new-shortcut.jpg" alt="Gray Create New Shortcut card at the top left" />
+    </figure>
+
+    <h2>7. Clio’s action</h2>
+    <p>In the search at the bottom, type Clio. Tap <strong>Save Wallet Expense</strong>.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/07-search.jpg" alt="Search results showing Save Wallet Expense" />
+    </figure>
+    <p>You should see two blocks: “Receive transaction as input” and Save Wallet Expense. Amount and Merchant are still empty.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/08-action.jpg" alt="Save Wallet Expense with empty Amount and Merchant" />
+    </figure>
+
+    <h2>8. Amount</h2>
+    <p>Tap the Amount field. Above the keyboard, tap <strong>Select Variable</strong>.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/09-amount-field.jpg" alt="Amount field with Select Variable above the keyboard" />
+    </figure>
+    <p>Tap the blue <strong>Shortcut Input</strong> chip under “Receive transaction as input”.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/10-select-variable.jpg" alt="Select Variable screen with the Shortcut Input chip" />
+    </figure>
+    <p>A chip that only says Shortcut Input is not finished. That passes the whole transaction, and Shortcuts fails before Clio can read the amount.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/11-shortcut-input.jpg" alt="Amount still set to the whole Shortcut Input" />
+    </figure>
+    <p>Tap that chip again. The sheet says Type: Transaction. Do not leave the checkmark on Transaction. Scroll and tap <strong>Amount</strong>.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/12-amount-pick.jpg" alt="Transaction properties with the checkmark on Amount" />
+    </figure>
+    <p>The field then shows a blue Amount chip, not Shortcut Input.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/12-amount-set.jpg" alt="Amount field set to the Amount property" />
+    </figure>
+
+    <h2>9. Merchant</h2>
+    <p>Tap Merchant and repeat the same path. On the Transaction sheet, choose <strong>Merchant</strong>, not Transaction.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/13-merchant.jpg" alt="Transaction properties with Merchant checked" />
+    </figure>
+
+    <h2>10. Save</h2>
+    <p>Tap the blue checkmark at the top. The automation appears in the list. The next payment with that card asks you to save the expense in Clio.</p>
+    <figure class="shot">
+      <img src="assets/apple-pay/14-done.jpg" alt="Saved automation, When I tap any of 2 Wallet passes, Save Wallet Expense" />
+    </figure>
+
+    <footer><p>© 2026 Makar Kovtunov</p></footer>
+  </div>
+</body>
+</html>

@@ -53,3 +53,15 @@ footer {
   color: #333;
   font-size: 0.9rem;
 }
+.langs { display: flex; gap: 14px; font-size: 0.95rem; }
+.langs a { text-decoration: none; color: #555; }
+.langs a[aria-current="page"] { color: #000; font-weight: 700; }
+.shot { margin: 14px 0 6px; }
+.shot img {
+  width: min(280px, 78%);
+  height: auto;
+  display: block;
+  border: 1px solid #e4e4e4;
+  border-radius: 28px;
+}
+.shot figcaption { color: #555; font-size: 0.9rem; margin-top: 8px; }
